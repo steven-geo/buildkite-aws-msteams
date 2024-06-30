@@ -59,10 +59,7 @@ def send_buildkite_buildfinish_message(webhook_url,event):
         message = f"Event Payload is not a valid Buildkite Build Event. \
             See https://buildkite.com/docs/integrations/amazon-eventbridge#example-event-payloads-build-finished\n \
             {event}"
-
     teams_message.text(message)
-    print("SENDING: ",end='')
-    teams_message.printme()
     # send the message.
     teams_message.send()
     last_status_code = teams_message.last_http_response.status_code
